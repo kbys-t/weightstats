@@ -16,7 +16,7 @@ pip install -e .
 
 ## How to use
 
-for example,
+For example,
 
 ```python
 import weightstats as ws

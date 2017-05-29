@@ -121,6 +121,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-# add to ignore install info
-weightstats.egg-info/
