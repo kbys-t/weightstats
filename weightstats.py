@@ -7,7 +7,7 @@ def mean(a, axis, weights, keepdims=False):
     if a.shape[axis] == len(weights):
         w = _govern_Weight(a, axis, weights)
         r = a*w
-        return r[np.isfinite(r)].sum(axis=axis, keepdims=keepdims)
+        return np.nansum(r, axis=axis, keepdims=keepdims)
     else:
         sys.stderr.write("size is different in weightstats.mean\n")
         sys.exit(-1)
@@ -17,7 +17,7 @@ def var(a, axis, weights, keepdims=False):
         m = mean(a, axis, weights, keepdims)
         w = _govern_Weight(a, axis, weights)
         r = np.power(a-m, 2)*w
-        return r[np.isfinite(r)].sum(axis=axis, keepdims=keepdims)
+        return np.nansum(r, axis=axis, keepdims=keepdims)
     else:
         sys.stderr.write("size is different in weightstats.var\n")
         sys.exit(-1)
